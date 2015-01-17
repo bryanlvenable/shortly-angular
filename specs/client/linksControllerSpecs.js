@@ -38,6 +38,7 @@ describe('LinksController', function () {
     $httpBackend.expectGET("/api/links").respond(mockLinks);
     createController();
     $httpBackend.flush();
+    console.log("scopedatalinks",$scope.data.links);
     expect($scope.data.links).to.eql(mockLinks);
   });
 });

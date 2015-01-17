@@ -2,6 +2,11 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+  return {
+    init: function(fun){
+      fun();
+    }
+  }
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!

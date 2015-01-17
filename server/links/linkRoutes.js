@@ -15,4 +15,7 @@ module.exports = function (app) {
 
   app.get('/:code', linksController.navToLink);
 
+  // app.post('/links', userController.findUrl);
+  // app.post('/links', userController.allLinks);
+  // app.get('/links', userController.checkAuth);
 };
