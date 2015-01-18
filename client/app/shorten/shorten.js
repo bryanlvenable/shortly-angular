@@ -3,6 +3,8 @@ angular.module('shortly.shorten', [])
 .controller('ShortenController', function ($scope, $location, $http, Links) {
   // Your code here
   $scope.link = {};
+  console.log("****LINKS",Links);
+  console.log("****SCOPE",$scope);
   $scope.addLink = function(){
     $http.post('/api/links').
       success(function(data,status,headers,config){
@@ -15,7 +17,7 @@ angular.module('shortly.shorten', [])
         // trust the magical unicorn to send it back
       }).
       error(function(data,status,headers,config){
-        console.log('/api/links get request failed');
+        console.log('/api/links POST request failed');
       })
   };
 });

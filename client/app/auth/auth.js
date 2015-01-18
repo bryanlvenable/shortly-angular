@@ -7,23 +7,28 @@ angular.module('shortly.auth', [])
   $scope.user = {};
 
   $scope.signin = function () {
+    console.log("sign in recieved");
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
         $location.path('/links');
       })
       .catch(function (error) {
+        console.log("something else")
         console.error(error);
       });
   };
 
   $scope.signup = function () {
+    console.log("sign up recieved");
     Auth.signup($scope.user)
       .then(function (token) {
+        console.log("inside token block");
         $window.localStorage.setItem('com.shortly', token);
         $location.path('/links');
       })
       .catch(function (error) {
+        console.log("post fucked up")
         console.error(error);
       });
   };

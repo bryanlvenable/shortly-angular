@@ -28,6 +28,7 @@ angular.module('shortly.services', [])
   };
 
   var signup = function (user) {
+    console.log("signup method from Auth factory has been called");
     return $http({
       method: 'POST',
       url: '/api/users/signup',

@@ -4,6 +4,8 @@ angular.module('shortly.links', [])
   // Your code here
   $scope.data = {};
 
+  console.log("****LINKS IN ANGULAR MODULE",Links)
+
   $scope.getLinks = function(){
     $http.get('/api/links').
       success(function(data,status,headers,config){

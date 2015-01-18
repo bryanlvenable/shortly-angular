@@ -19,6 +19,7 @@ var UserSchema = new mongoose.Schema({
 });
 
 UserSchema.methods.comparePasswords = function (candidatePassword) {
+  console.log("comparing passwords");
   var defer = Q.defer();
   var savedPassword = this.password;
   bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {
@@ -46,7 +47,7 @@ UserSchema.pre('save', function (next) {
     }
 
     // hash the password along with our new salt
-    bcrypt.hash(user.password, salt, function(err, hash) {
+    bcrypt.hash(user.password, salt, null, function(err, hash) {
       if (err) {
         return next(err);
       }
