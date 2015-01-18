@@ -3,11 +3,13 @@ angular.module('shortly.shorten', [])
 .controller('ShortenController', function ($scope, $location, $http, Links) {
   // Your code here
   $scope.link = {};
-  console.log("****LINKS",Links);
-  console.log("****SCOPE",$scope);
+  $scope.link.url = '';
   $scope.addLink = function(){
-    $http.post('/api/links').
-      success(function(data,status,headers,config){
+    Links.postLink($scope.link)
+    // $http.post('/api/links').
+      .success(function(data,status,headers,config){
+        console.log("LINKURL**", $scope.link.url)
+        console.log("DATA***",data)
         // $scope.data.links = data;
         // Add a 201 to headers
         status = 201;

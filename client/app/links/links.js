@@ -15,5 +15,6 @@ angular.module('shortly.links', [])
         console.log('/api/links get request failed');
       })
   };
+
   Links.init($scope.getLinks);
 });

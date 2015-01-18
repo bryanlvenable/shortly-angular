@@ -2,9 +2,22 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+  // init: function(fun){
+  //   fun();
+  // },
+  // postLink: function(url){
+  //   return $http.post(url);
+  // }
+  // return {
+  //   init: init,
+  //   postLink: postLink
+  // }
   return {
     init: function(fun){
       fun();
+    },
+    postLink: function(url){
+      return $http.post('/api/links/', url);
     }
   }
 })
